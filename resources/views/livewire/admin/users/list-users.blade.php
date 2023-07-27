@@ -63,6 +63,9 @@
                                 </thead>
                             </table>
                         </div>
+                        <div class="card-footer d-flex justify-content-end">
+                            {{  $users->links() }}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -123,10 +126,10 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal"><i
-                            class="fa fa-times mr-2"></i>Cancel</button>
+                            class="mr-2 fa fa-times"></i>Cancel</button>
                     <button type="button" class="btn btn-success"
                         wire:click.prevent="{{ $showEditModal ? 'updateUser' : 'createUser' }}"><i
-                            class="fa fa-save mr-2"></i>
+                            class="mr-2 fa fa-save"></i>
                         @if ($showEditModal)
                             <span> Update </span>
                         @else
@@ -150,9 +153,9 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal"><i
-                            class="fa fa-times mr-2"></i>Cancel</button>
+                            class="mr-2 fa fa-times"></i>Cancel</button>
                     <button type="button" class="btn btn-danger" wire:click.prevent="deleteUser"><i
-                            class="fa fa-trash mr-2"></i> Delete User
+                            class="mr-2 fa fa-trash"></i> Delete User
                     </button>
                 </div>
             </div>

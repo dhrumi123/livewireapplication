@@ -12,3 +12,18 @@ button.btn-primary.add-user {
     padding-left: 15px;
     padding-right: 15px;
 }
+
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #0f6876 !important;
+    border-color: #0f6876 !important;
+}
+
+li.page-item {
+    z-index: 3;
+    color: #fff;
+    background-color: #0f6876 !important;
+    border-color: #0f6876 !important;
+}
+
