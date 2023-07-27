@@ -1,0 +1,14 @@
+button.btn-close {
+    border: none;
+    background: none;
+}
+
+button.btn-primary.add-user {
+    background-color: #0f6876;
+    border: none;
+    border-radius: 10px;
+    min-width: 40px;
+    min-height: 40px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
