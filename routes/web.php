@@ -8,6 +8,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Livewire\Admin\Users\ListUsers;
 use App\Http\Controllers\Admin\DashboardController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+use App\Http\Livewire\Admin\Appointments\ListAppointments;
+use App\Http\Livewire\Admin\Appointments\CreateAppointmentForm;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,9 +40,13 @@ Route::middleware(['auth', 'verified', 'is_user'])->group(function () {
     })->name('dashboard');
 });
 
-Route::middleware(['auth','is_admin'])->group(function () {
-    Route::get('admin/dashboard', DashboardController::class)->name('admin.dashboard');
-    Route::get('admin/users', ListUsers::class)->name('admin.users');
+Route::middleware(['auth','is_admin'])->prefix('admin')->group(function () {
+    Route::get('dashboard', DashboardController::class)->name('admin.dashboard');
+    Route::get('users', ListUsers::class)->name('admin.users');
+    Route::get('appointments', ListAppointments::class)->name('admin.appointments');
+    Route::get('appointments/create', CreateAppointmentForm::class)->name('admin.appointments.create');
+
+    
 });
 
 

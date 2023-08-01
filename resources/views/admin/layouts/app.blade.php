@@ -14,6 +14,7 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('backend/dist/css/adminlte.min.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/plugins/toastr/toastr.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/css/style.css') }}">
 
 
@@ -52,12 +53,17 @@
     <!-- REQUIRED SCRIPTS -->
 
     <!-- jQuery -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/38.1.1/classic/ckeditor.js"></script>
     <script src="{{ asset('backend/plugins/jquery/jquery.min.js') }}"></script>
     <!-- Bootstrap 4 -->
     <script src="{{ asset('backend/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('backend/dist/js/adminlte.min.js') }}"></script>
     <script src="{{ asset('backend/plugins/toastr/toastr.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="{{ asset('backend/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}">
+    
+
     <script>
         $(document).ready(function() {
             toastr.options = {
@@ -84,6 +90,40 @@
         window.addEventListener('show-delete-modal', event => {
             $('#confirmationModal').modal('show');
         })
+    </script>
+    <script>
+        $(document).ready(function(){
+            $('#appointmentDate').datetimepicker({
+                format: 'L',
+            });
+
+            $('#appointmentDate').on("change.datetimepicker",function (e){
+                let date = $(this).data('appointmentdate');
+                eval(date).set('state.date',$('#appointmentDateInput').val());
+            });
+
+            $('#appointmentTime').datetimepicker({
+                format: 'LT',
+            });
+
+            $('#appointmentTime').on("change.datetimepicker",function (e){
+                let time = $(this).data('appointmenttime');
+                eval(time).set('state.time',$('#appointmentTimeInput').val());
+            });
+        })
+    </script>
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#note' ) )
+            .then( editor => {
+                document.querySelector('#submit').addEventListener('click',() => {
+                    let note = $('#note').data('note');
+                    eval(note).set('state.note', editor.getData());
+                });
+            } )
+            .catch( error => {
+                    console.error( error );
+            } );
     </script>
     @livewireScripts
 </body>
