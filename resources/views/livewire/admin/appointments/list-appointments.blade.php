@@ -45,8 +45,8 @@
                                         <tr>
                                             <th scope="row">{{ $loop->iteration }}</th>
                                             <td> {{ $appointment->client->name }} </td>
-                                            <td> {{ $appointment->date->format('d-m-y') }} </td>
-                                            <td> {{ $appointment->time->format('H:m A') }} </td>
+                                            <td> {{ $appointment->date->toFormattedDate() }} </td>
+                                            <td> {{ $appointment->time->toFormattedTime() }} </td>
                                             <td>
                                                 @if ($appointment->status == '0')
                                                     <span class="badge badge-success"> Closed</span>
@@ -54,7 +54,7 @@
                                                     <span class="badge badge-primary"> Scheduled</span>
                                                 @endif
                                             </td>
-                                            <td><a href="" class="mr-1 edit-link btn btn-icon btn-outline-info">
+                                            <td><a href="{{ route('admin.appointments.edit', $appointment) }}" class="mr-1 edit-link btn btn-icon btn-outline-info">
                                                     <i class="fa fa-edit"></i> </a>
                                                 <a href="#"
                                                     class="mr-1 delete-link btn btn-icon btn-outline-danger"> <i

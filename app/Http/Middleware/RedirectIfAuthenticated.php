@@ -17,10 +17,17 @@ class RedirectIfAuthenticated
      */
     public function handle(Request $request, Closure $next, string ...$guards): Response
     {
-        // if (!Auth::check()) {
-            // return redirect('login');
-        // }
+        if(Auth::check()) {
+            if (Auth::user()->user_type == '1') {
+                return redirect('admin/dashboard');
+            }
+            else {
+                return redirect('/dashboard');
+            } 
+        }
+            return $next($request);
+        
     
-        return $next($request);
+       
     }
 }

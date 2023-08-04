@@ -53,7 +53,6 @@
     <!-- REQUIRED SCRIPTS -->
 
     <!-- jQuery -->
-    <script src="https://cdn.ckeditor.com/ckeditor5/38.1.1/classic/ckeditor.js"></script>
     <script src="{{ asset('backend/plugins/jquery/jquery.min.js') }}"></script>
     <!-- Bootstrap 4 -->
     <script src="{{ asset('backend/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
@@ -62,7 +61,6 @@
     <script src="{{ asset('backend/plugins/toastr/toastr.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <script src="{{ asset('backend/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}">
-    
 
     <script>
         $(document).ready(function() {
@@ -111,19 +109,6 @@
                 eval(time).set('state.time',$('#appointmentTimeInput').val());
             });
         })
-    </script>
-    <script>
-        ClassicEditor
-            .create( document.querySelector( '#note' ) )
-            .then( editor => {
-                document.querySelector('#submit').addEventListener('click',() => {
-                    let note = $('#note').data('note');
-                    eval(note).set('state.note', editor.getData());
-                });
-            } )
-            .catch( error => {
-                    console.error( error );
-            } );
     </script>
     @livewireScripts
 </body>

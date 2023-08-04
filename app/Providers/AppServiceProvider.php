@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Carbon\Carbon;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +20,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Carbon::macro('toFormattedDate', function(){
+            return $this->format('d-m-y');
+        });
+
+        Carbon::macro('toFormattedTime', function(){
+            return $this->format('H:i A');
+        });
     }
 }

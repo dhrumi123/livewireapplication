@@ -20,7 +20,8 @@
                             type="password"
                             name="password"
                             required autocomplete="current-password" />
-
+            {{-- <button type="button" id="btnToggle" class="toggle"><i id="eyeIcon" class="fa fa-eye"></i></button> --}}
+            <input type="checkbox" id="passwordcheckbox">Show Password
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
 
@@ -45,3 +46,4 @@
         </div>
     </form>
 </x-guest-layout>
+  

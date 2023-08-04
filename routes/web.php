@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 use App\Http\Livewire\Admin\Appointments\ListAppointments;
 use App\Http\Livewire\Admin\Appointments\CreateAppointmentForm;
+use App\Http\Livewire\Admin\Appointments\UpdateAppointmentForm;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,8 @@ Route::middleware(['auth','is_admin'])->prefix('admin')->group(function () {
     Route::get('users', ListUsers::class)->name('admin.users');
     Route::get('appointments', ListAppointments::class)->name('admin.appointments');
     Route::get('appointments/create', CreateAppointmentForm::class)->name('admin.appointments.create');
+    Route::get('appointments/{appointment}/edit', UpdateAppointmentForm::class)->name('admin.appointments.edit');
+
 
     
 });

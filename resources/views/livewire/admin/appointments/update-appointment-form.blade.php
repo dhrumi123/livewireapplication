@@ -9,7 +9,7 @@
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
                         <li class="breadcrumb-item active"><a href="{{ route('admin.appointments') }}">Appointments</a></li>
-                        <li class="breadcrumb-item active">Create</li>
+                        <li class="breadcrumb-item active">Update</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -22,7 +22,7 @@
                     <form wire:submit.prevent="createAppointment" autocomplete="off">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Add New Appointment</h3>
+                                <h3 class="card-title">Update Appointment</h3>
                             </div>
                             <div class="card-body">
                                 <div class="row">
@@ -117,8 +117,6 @@
         </div>
     </div>
 </div>
-<script src="https://cdn.ckeditor.com/ckeditor5/38.1.1/classic/ckeditor.js"></script>
-
 <script>
     ClassicEditor
         .create( document.querySelector( '#note' ) )

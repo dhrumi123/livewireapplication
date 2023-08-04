@@ -27,4 +27,12 @@
             </div>
         </div>
     </body>
+    <script src="{{ asset('backend/plugins/jquery/jquery.min.js') }}"></script>
+    <script>
+        $(document).ready(function(){
+        $('#passwordcheckbox').on('change', function(){
+            $('#password').attr('type',$('#passwordcheckbox').prop('checked')==true?"text":"password"); 
+        });
+    });
+    </script>  
 </html>
